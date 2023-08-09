@@ -1,0 +1,20 @@
+<mapper namespace="com.bct.mappers.UserMapper">
+
+    <resultMap id="userResultMap" type="com.bct.domain.User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="email" column="email" />
+        <!-- 其他属性映射 -->
+    </resultMap>
+
+    <select id="getUserById" resultMap="userResultMap">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="com.bct.domain.User">
+        INSERT INTO users (username, email) VALUES (#{username}, #{email})
+    </insert>
+
+    <!-- 其他SQL语句定义 -->
+
+</mapper>
